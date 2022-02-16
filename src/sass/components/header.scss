@@ -1,0 +1,16 @@
+#offcanvasNavbar
+{
+    background-color: $dark;
+    color: $light;
+    & a
+    {
+        color: $light;
+    }
+}
+.input
+{
+    &Search
+    {
+        width: 50vw !important;
+    }
+}
