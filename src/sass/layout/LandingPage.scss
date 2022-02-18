@@ -1,0 +1,21 @@
+.cardt {
+    width: 16rem;
+    margin-bottom: 1rem;
+    color: $dark;
+    text-decoration: none;
+    &:hover {
+        color: $dark;
+    }
+    .NextCad {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .loandingImage {
+        width: 16rem;
+        height: 15rem;
+        background-color: $dark;
+    }
+}

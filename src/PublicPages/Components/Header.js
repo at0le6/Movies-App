@@ -9,7 +9,7 @@ function Header() {
   <Container fluid>
   <Navbar.Brand as={Link} to='/' className='navbar-brand'>Movie-Gm</Navbar.Brand>
     <Navbar.Toggle aria-controls={useBreakpoint()==="sm"?"offcanvasNavbar":"responsive-navbar-nav"} />
-    {useBreakpoint()==="sm"?<OffcanvasHeader/>:<CollapseHeader/>}
+    {useBreakpoint()==="sm"?<OffcanvasHeader />:<CollapseHeader />}
   </Container>
 </Navbar>;
 }

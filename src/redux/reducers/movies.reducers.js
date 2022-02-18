@@ -2,21 +2,21 @@ import { ActionTypes } from '../constanst/action.types';
 const initialSate = {
     movies: []
 }
-export const moviesReducer=(state=initialSate,{type,payload})=>
-{
+export const moviesReducer = (state = initialSate, { type, payload }) => {
     switch (type) {
         case ActionTypes.SET_MOVIES:
-            return {...state,...payload}
-    
+            return {...state, ...payload }
+        case ActionTypes.deSelectMovie:
+            return initialSate;
+
         default:
             return state;
     }
 }
-export const selectedMoviesReducer=(state={},{type,payload})=>
-{
+export const selectedMoviesReducer = (state = {}, { type, payload }) => {
     switch (type) {
         case ActionTypes.SELECTED_MOVIE:
-            return {...state,...payload};
+            return {...state, ...payload };
         case ActionTypes.REMOVE_SELECTED_MOVIE:
             return {};
         default:

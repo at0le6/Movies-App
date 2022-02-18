@@ -1,27 +1,32 @@
 import {useEffect} from 'react'
 import axios from 'axios'
-import {useDispatch,useSelector} from 'react-redux'
-import { setMovie,removeSelectedMovie} from '../redux/actions/movies.actions'
+import {useDispatch} from 'react-redux'
+import {Breadcrumb} from 'react-bootstrap'
+import { setMovie,deSelectMovie} from '../redux/actions/movies.actions'
 import BestShows from './Components/BestShows'
 function BasePage() {
-    const movies=useSelector(state=>state);
     const dispach=useDispatch()
     const HomeShowsTop= async()=>
     {
         const response=await axios.get('https://api.tvmaze.com/shows');
-        const movies=response.data
-        dispach(setMovie({movies:movies}))
+        const movies=response.data;
+        const movie=movies.filter(e=>{return e.rating?.average>8.5})
+        dispach(setMovie({movies:movie}))
     }
     useEffect(()=>{
         HomeShowsTop()
-        return ()=>{
-            dispach(removeSelectedMovie())
+        return ()=>
+        {
+            dispach(deSelectMovie());
         }
     },[])
   return (
     <div className='container mt-3'>
+        <Breadcrumb className='mb-3'>
+            <Breadcrumb.Item active>Shows</Breadcrumb.Item>
+        </Breadcrumb>
         <h2 className='pb-3'>Best shows</h2>
-        <div className='d-flex'>
+        <div className='d-flex justify-content-between flex-wrap'>
             <BestShows/>
         </div>
     </div>
