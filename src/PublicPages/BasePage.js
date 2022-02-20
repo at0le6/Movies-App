@@ -8,7 +8,7 @@ function BasePage() {
     const dispach=useDispatch()
     const HomeShowsTop= async()=>
     {
-        const response=await axios.get('https://api.tvmaze.com/shows');
+        const response=await axios.get('https://api.tvmaze.com/shows').catch(e=>console.log(e));
         const movies=response.data;
         const movie=movies.filter(e=>{return e.rating?.average>8.5})
         dispach(setMovie({movies:movie}))

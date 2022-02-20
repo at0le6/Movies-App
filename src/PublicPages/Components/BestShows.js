@@ -29,7 +29,7 @@ function BestShows() {
 )
   return (
     <>
-    {<movies className="length!"></movies>==0?ListingData:LoandingData}
+    {movies.length!==0?ListingData:LoandingData}
     <Card as={Link} to='/shows' className='cardt'>
       <Card.Body className='NextCad'>
         <Card.Title>More Shows</Card.Title>
