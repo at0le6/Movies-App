@@ -28,7 +28,7 @@ function ShowsPage() {
             <Breadcrumb.Item active>Shows</Breadcrumb.Item>
         </Breadcrumb>
         <h2 className='mb-2'>Shows</h2>
-        <PaginationList movies={movies} route='shows'/>
+        <PaginationList movies={movies} />
     </div>
   )
 }
