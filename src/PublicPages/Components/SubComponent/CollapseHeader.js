@@ -1,5 +1,5 @@
 import {Navbar} from 'react-bootstrap'
-import LinksHeader from './Comon_FIles/LinksHeader';
+import LinksHeader from '../../../hooks/LinksHeader';
 
 function CollapseHeader() {
   return <Navbar.Collapse id="navbarScroll">

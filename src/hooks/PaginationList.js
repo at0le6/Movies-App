@@ -16,8 +16,8 @@ function PaginationList({movies,getPage}) {
   };
   const ListingData=movies.map(e=>{
     const {name,id,image}=e;
-    return (<Card as={Link} to={`${id}`} key={id} className='cardt'>
-    <Card.Img variant="top" src={image.medium} />
+    return (<Card as={Link} to={`${id}`} key={image?.medium} className='cardt'>
+    <Card.Img variant="top" src={image?.medium}/>
     <Card.Body>
       <Card.Title>{name}</Card.Title>
     </Card.Body>
@@ -32,11 +32,10 @@ function PaginationList({movies,getPage}) {
   useEffect(()=>{
     if(section>(240*page))
   {
-    setPage((count) => count + 1);
-    console.log(page)
+    setPage(page+1);
     getPage(page);
   }
-  },[page,section,getPage])
+  },[section,page])
   function changePage(event) {
     const pageNumber = Number(event.target.textContent);
     const changeSection=15*pageNumber;
@@ -44,22 +43,21 @@ function PaginationList({movies,getPage}) {
     setSection(changeSection)
     setCurrentPage(pageNumber-1);
  }
- function FirstPage(event)
+ function FirstPage()
  {
   scrollToTop();
   setSection(15)
   setCurrentPage(0);
   setPlus(0);
-  setPage(1);
  }
- function NextPage(event)
+ function NextPage()
  {
   setCurrentPage(currentPage+1);
   const changeSection=15*(currentPage+2);
   setSection(changeSection)
   if(!currentPage<5)setPlus(plus+1)
  }
- function PastPage(event)
+ function PastPage()
  {
   setCurrentPage(currentPage-1);
   const changeSection=15*(currentPage);

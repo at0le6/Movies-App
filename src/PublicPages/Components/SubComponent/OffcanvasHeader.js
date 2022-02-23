@@ -1,6 +1,6 @@
 import {useState} from 'react';
 import { Navbar,Offcanvas,Nav } from 'react-bootstrap'
-import LinksHeader from './Comon_FIles/LinksHeader';
+import LinksHeader from '../../../hooks/LinksHeader';
 
 function OffcanvasHeader() {
   return <Navbar.Offcanvas

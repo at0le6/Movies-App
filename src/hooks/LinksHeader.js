@@ -8,14 +8,13 @@ function LinksHeader({navData}) {
   const onChange=(q)=>setText(q);
   const onSearch=(event)=>{
     event.preventDefault();
-    navigate(`/shows/${text}`)};
+    navigate(`/search/${text}`)};
   return <><Nav
   className={navData}
   navbarScroll
 >
   <Nav.Link as={Link} to='/shows'>Shows</Nav.Link>
   <Nav.Link as={Link} to='/people'>People</Nav.Link>
-  <Nav.Link as={Link} to='/networks'>Networks</Nav.Link>
 </Nav>
   <Form onSubmit={(e)=>onSearch(e)} className="d-flex">
   <FormControl

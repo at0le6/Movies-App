@@ -5,9 +5,9 @@ import {Link} from 'react-router-dom'
 
 function BestShows() {
     const movies=useSelector(state=>state.Allmovies.movies)
-    const preLoad=[0,1,2,3,4,5,6,7,8];
+    const preLoad=[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14];
   const LoandingData=preLoad.map(e=>{
-    return (<Card key={e} className='cardt'>
+    return (<Card key={e+'preload'} className='cardt'>
     <div className='loandingImage'></div>
     <Card.Body>
       <Placeholder as={Card.Title} animation="glow">
@@ -19,8 +19,8 @@ function BestShows() {
   console.log();
   const ListingData=movies.map(e=>{
     const {name,id,image}=e;
-    return (<Card as={Link} to={`/shows/${id}`} key={id} className='cardt'>
-    <Card.Img variant="top" src={image.medium} />
+    return (<Card as={Link} to={`/shows/${id}`} key={image?.medium} className='cardt'>
+    <Card.Img variant="top" src={image?.medium} />
     <Card.Body>
       <Card.Title>{name}</Card.Title>
     </Card.Body>
