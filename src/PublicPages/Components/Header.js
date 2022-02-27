@@ -5,6 +5,7 @@ import CollapseHeader from './SubComponent/CollapseHeader';
 import OffcanvasHeader from './SubComponent/OffcanvasHeader';
 
 function Header() {
+  console.log(useBreakpoint())
   return <Navbar bg="dark" variant="dark" expand={useBreakpoint()==="sm"?false:true} className='sm'>
   <Container fluid>
   <Navbar.Brand as={Link} to='/' className='navbar-brand'>Movie-Gm</Navbar.Brand>
