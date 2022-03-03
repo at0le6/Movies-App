@@ -7,7 +7,6 @@ function LinksHeader({navData}) {
   const [text,setText]=useState('');
   const onChange=(q)=>setText(q);
   const onSearch=(event)=>{
-    event.preventDefault();
     navigate(`/search/${text}`)};
   return <><Nav
   className={navData}

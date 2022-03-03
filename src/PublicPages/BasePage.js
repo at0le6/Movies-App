@@ -23,7 +23,7 @@ function BasePage() {
   return (
     <div className='container mt-3'>
         <Breadcrumb className='mb-3'>
-            <Breadcrumb.Item active>Shows</Breadcrumb.Item>
+            <Breadcrumb.Item active>Home</Breadcrumb.Item>
         </Breadcrumb>
         <h2 className='pb-3'>Best shows</h2>
         <div className='d-flex justify-content-between flex-wrap'>

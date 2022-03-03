@@ -36,7 +36,7 @@ function DataDetailsFetching() {
       }
       else
       {
-        const main=await axios.get(`https://api.tvmaze.com/people/${id}`)
+        const main=await (await axios.get(`https://api.tvmaze.com/people/${id}`)).data
         dispach(setPeopleInfo({main}))
       }
     }

@@ -1,6 +1,7 @@
 import {BrowserRouter as Router,Routes,Route} from 'react-router-dom'
 import DataDetailsFetching from './hooks/DataDetailsFetching';
 import BasePage from './PublicPages/BasePage';
+import Footer from './PublicPages/Components/Footer';
 import Header from './PublicPages/Components/Header';
 import PeoplePage from './PublicPages/PeoplePage';
 import SearchListing from './PublicPages/SearchListing';
@@ -19,6 +20,7 @@ function App() {
       <Route path='/people/:id' element={<DataDetailsFetching/>}/>
       <Route path='/search/:query' element={<SearchListing/>}/>
     </Routes>
+    <Footer/>
   </Router>
   </>
 }
