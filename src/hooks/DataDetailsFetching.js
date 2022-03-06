@@ -19,34 +19,31 @@ function DataDetailsFetching() {
     }
     return 'No route asigned'
   }
-  const dispach=useDispatch();
+  let dispach=useDispatch();
   useEffect(()=>{
     const fetchData= async()=>
     {
       const typeOfFetch=getRoute()
-      if(typeOfFetch==="shows")
+      if(typeOfFetch==="people")
+      {
+          const mainPeople=await (await axios.get(`https://api.tvmaze.com/people/${id}`)).data
+          //return ({mainPeople});
+          console.log("people")
+          dispach(setPeopleInfo({mainPeople}));
+      }
+      else if(typeOfFetch==="shows")
       {
         const main=await (await axios.get(`https://api.tvmaze.com/shows/${id}`)).data
-        const episodes=await (await axios.get(`https://api.tvmaze.com/shows/${id}/episodes`)).data;
-        const season=await (await axios.get(`https://api.tvmaze.com/shows/${id}/seasons`)).data;
-        const cast=await (await axios.get(`https://api.tvmaze.com/shows/${id}/cast`)).data;
-        const crew=await (await axios.get(`https://api.tvmaze.com/shows/${id}/crew`)).data;
-        const gallery=await (await axios.get(`https://api.tvmaze.com/shows/${id}/images`)).data;
-        dispach(setShowInfo({main,episodes,season,cast,crew,gallery}))
-      }
-      else
-      {
-        const main=await (await axios.get(`https://api.tvmaze.com/people/${id}`)).data
-        dispach(setPeopleInfo({main}))
+          const episodes=await (await axios.get(`https://api.tvmaze.com/shows/${id}/episodes`)).data;
+          const season=await (await axios.get(`https://api.tvmaze.com/shows/${id}/seasons`)).data;
+          const cast=await (await axios.get(`https://api.tvmaze.com/shows/${id}/cast`)).data;
+          const crew=await (await axios.get(`https://api.tvmaze.com/shows/${id}/crew`)).data;
+          const gallery=await (await axios.get(`https://api.tvmaze.com/shows/${id}/images`)).data;
+          dispach(setShowInfo({main,episodes,season,cast,crew,gallery}));
       }
     }
-    fetchData();
-    return ()=>
-    {
-      dispach(deSelectPeopleInfo());
-      dispach(deSelectShowInfo());
-    }
-  },[])
+    fetchData()
+  },[path])
   return (
     <div className='container my-3'>
       {getRoute()==="shows"?<ShowsDetails params={id}/>:<PeopleDetails/>}

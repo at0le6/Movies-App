@@ -18,7 +18,7 @@ export const setShowInfo = (show) => {
 }
 export const deSelectShowInfo = () => {
     return {
-        type: ActionTypes.REMOVE_SELECTED_MOVIE,
+        type: ActionTypes.REMOVE_SHOW_INFO,
     }
 }
 export const setPeopleInfo = (people) => {
@@ -29,7 +29,7 @@ export const setPeopleInfo = (people) => {
 }
 export const deSelectPeopleInfo = () => {
     return {
-        type: ActionTypes.REMOVE_SHOW_INFO,
+        type: ActionTypes.REMOVE_PEOPLE_INFO,
     }
 }
 export const setSelectedMovie = (movie) => {

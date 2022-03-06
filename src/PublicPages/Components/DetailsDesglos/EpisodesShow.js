@@ -2,7 +2,6 @@ import React from 'react'
 import {useSelector} from 'react-redux'
 import {Link} from 'react-router-dom'
 import {Table} from 'react-bootstrap'
-import { getAllByAltText } from '@testing-library/react';
 
 function EpisodesShow() {
   const Episodes=useSelector(state=>state.infoShow);
@@ -22,7 +21,7 @@ function EpisodesShow() {
         </thead>
         <tbody>
           {Episodes.episodes.filter(i=>e.number===i.season).map((j,index)=>(
-            <tr>
+            <tr key={e.url+index}>
             <td>{index+1}</td>
             <td>{j.airdate}</td>
             <td>{j.name}</td>

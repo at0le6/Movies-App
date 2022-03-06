@@ -11,7 +11,7 @@ const infoShowInitialState = {
     gallery: []
 }
 const infoPeopleInitialState = {
-    main: []
+    mainPeople: []
 }
 export const moviesReducer = (state = initialSate, { type, payload }) => {
     switch (type) {
@@ -30,7 +30,6 @@ export const infoShowReducer = (state = infoShowInitialState, { type, payload })
             return {...state, ...payload }
         case ActionTypes.REMOVE_SHOW_INFO:
             return infoShowInitialState;
-
         default:
             return state;
     }
@@ -39,7 +38,7 @@ export const infoPeopleReducer = (state = infoPeopleInitialState, { type, payloa
     switch (type) {
         case ActionTypes.SELECTED_PEOPLE_INFO:
             return {...state, ...payload }
-        case ActionTypes.REMOVE_SHOW_INFO:
+        case ActionTypes.REMOVE_PEOPLE_INFO:
             return infoPeopleInitialState;
 
         default:
